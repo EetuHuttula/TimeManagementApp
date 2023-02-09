@@ -1,8 +1,12 @@
 import React from 'react'
-import Navbar from '../components/Navbar.js'
+import './CSS/home.css'
 
 export default function Home() {
   return (
-    <Navbar />
+    <div className="Container">
+      <div className="Cover_gradient">
+          lol
+      </div>
+    </div>
   )
 }
