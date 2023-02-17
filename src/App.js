@@ -8,6 +8,7 @@ import Tietoa from './pages/Tietoa.js';
 
 //Components
 import Navbar from './components/Navbar.js';
+import Footer from './components/Footer.js';
 
 import { Routes, Route } from 'react-router-dom';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path="/Arkisto" element={<Arkisto />}/>
         <Route path="/Tietoa" element={<Tietoa />}/>
     </Routes>
+    <Footer />
   </>
     
   );
