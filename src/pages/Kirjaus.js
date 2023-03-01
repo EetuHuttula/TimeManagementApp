@@ -6,6 +6,13 @@ import "react-datepicker/dist/react-datepicker.css";
 export default function Kirjaus() {
  
   const [startDate, setStartDate] = useState(new Date());
+  const [start, setStart] = useState();
+  const [end, setEnd] = useState();
+
+  const inf = () => { 
+   console.log("Hello world!")
+  }
+
 
   return (
     <>
@@ -28,15 +35,15 @@ export default function Kirjaus() {
             
           <div className="form-group col-2">
             <label>Start</label>
-            <input type="number" className="form-control" placeholder="09.00" /> {/**workday start */}
+            <input type="number" className="form-control" value={start} onChange={e=>setStart(e.target.value)} />  {/**workday start */}
           </div>
           <div className="form-group col-2">
             <label>End</label>
-            <input type="number" className="form-control" placeholder="17.00" /> {/**ends */}
+            <input type="number" className="form-control" value={end} onChange={e=>setEnd(e.target.value)} /> {/**workday end */}
           </div>
           </div>
         </div>
-        <button className="btn btn-primary">Submit</button>
+        <button className="btn btn-primary" onClick={inf}>Submit</button>
       </div>
     </>
   )
