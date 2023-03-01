@@ -10,7 +10,7 @@ export default function Kirjaus() {
   const [end, setEnd] = useState();
 
   const inf = () => { 
-   console.log("Hello world!")
+   console.log(startDate, start, end)
   }
 
 

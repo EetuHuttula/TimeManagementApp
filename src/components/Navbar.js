@@ -24,7 +24,6 @@ export default function Navbar() {
             <div className="off_Links">
               <Link to="/">Etusivu</Link>
               <Link to="/Kirjaus">Kirjaus</Link>
-              <Link to="/Tietoa">Tietoa</Link>
            </div>
           </div>
         </div>

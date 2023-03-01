@@ -3,7 +3,7 @@ import './App.css';
 //Pages
 import Home from './pages/Home.js'
 import Kirjaus from './pages/Kirjaus.js';
-import Tietoa from './pages/Tietoa.js';
+import Tietoa from './pages/PageNotFound';
 
 //Components
 import Navbar from './components/Navbar.js';
@@ -19,7 +19,7 @@ function App() {
     <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/Kirjaus" element={<Kirjaus />}/>
-        <Route path="/Tietoa" element={<Tietoa />}/>
+        <Route path="*" element={<Tietoa />}/>
     </Routes>
     <Footer />
   </>
