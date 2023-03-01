@@ -8,10 +8,16 @@ export default function Kirjaus() {
   const [startDate, setStartDate] = useState(new Date());
   const [start, setStart] = useState();
   const [end, setEnd] = useState();
+  const [name, setName] = useState();
+  const [title, setTitle] = useState();
 
-  const inf = () => { 
-   console.log(startDate, start, end)
+  const getData = () => { 
+    const List = ["Name", name,"Job title", title,"Starting time", start,"Ending time", end,"Workday date", startDate]
+    console.log(List)
+    /**In the future I hope to make backend where this data would go*/
   }
+
+  
 
 
   return (
@@ -20,14 +26,11 @@ export default function Kirjaus() {
         <div className="row">
           <div className="form-group col-7">
             <label>Username</label>
-            <input type="text" className="form-control" placeholder="username" /> {/**After login the username will be in the field, you cant change it*/}
+            <input type="text" className="form-control" value={name} onChange={e=>setName(e.target.value)} /> {/**After login the username will be in the field, you cant change it*/}
           </div>
           <div className="form-group col-7">
             <label>Title</label>
-            <select type="text" className="form-control" placeholder="Title">
-              <option>Koodari</option>
-              <option>Duunari</option>
-            </select> {/**Titles come from backend */}
+            <input type="text" className="form-control" value={title} onChange={e=>setTitle(e.target.value)} /> 
 
           </div>
             <div className="form-group col-6">
@@ -43,7 +46,7 @@ export default function Kirjaus() {
           </div>
           </div>
         </div>
-        <button className="btn btn-primary" onClick={inf}>Submit</button>
+        <button className="btn btn-primary" onClick={getData}>Submit</button>
       </div>
     </>
   )
