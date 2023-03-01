@@ -2,7 +2,6 @@ import './App.css';
 
 //Pages
 import Home from './pages/Home.js'
-import Arkisto from './pages/Arkisto.js';
 import Kirjaus from './pages/Kirjaus.js';
 import Tietoa from './pages/Tietoa.js';
 
@@ -20,7 +19,6 @@ function App() {
     <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/Kirjaus" element={<Kirjaus />}/>
-        <Route path="/Arkisto" element={<Arkisto />}/>
         <Route path="/Tietoa" element={<Tietoa />}/>
     </Routes>
     <Footer />

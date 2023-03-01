@@ -14,9 +14,9 @@ export default function Navbar() {
         <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-          <div class="offcanvas-header ">
-            <h3 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" style={{color: '#333'}}>EetuOy
+        <div className="offcanvas offcanvas-start" data-bs-scroll="true" tabIndex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+          <div className="offcanvas-header ">
+            <h3 className="offcanvas-title" id="offcanvasWithBothOptionsLabel" style={{color: '#333'}}>EetuOy
             <img src={logo} alt="react-logo" style={{ width: '50px' }} /></h3>
             <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
           </div>
@@ -24,7 +24,6 @@ export default function Navbar() {
             <div className="off_Links">
               <Link to="/">Etusivu</Link>
               <Link to="/Kirjaus">Kirjaus</Link>
-              <Link to="/Arkisto">Arkisto</Link>
               <Link to="/Tietoa">Tietoa</Link>
            </div>
           </div>
