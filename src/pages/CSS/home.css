@@ -1,1 +1,16 @@
+.home_cont {
+    text-align: center;
+    padding: 16px;
+    letter-spacing: 2px;
+}
+.home_Image {
+ max-width: 50%;
+ border-radius: 4px;
+}
 
+.inffobox h3 {
+    text-decoration: underline;
+}
+span {
+    font-style: italic;
+}
