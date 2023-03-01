@@ -1,0 +1,8 @@
+ion-icon{
+    padding: 4px;
+    font-size: 20px;
+    color: #333;
+}
+footer {
+    flex-direction: column;
+}
