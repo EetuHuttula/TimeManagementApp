@@ -12,3 +12,29 @@ button {
 .form-control {
     margin-bottom: 10px;
 }
+
+.formcontainer {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+  .registerbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    opacity: 0.9;
+  }
+  
+
+  input[type=text], input[type=password] {
+    width: 50%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    border: none;
+    background: #f1f1f1;
+  }

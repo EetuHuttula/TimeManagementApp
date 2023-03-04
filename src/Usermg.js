@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import { collection, addDoc, Staff, firestore } from "./Firebase";
-
+import { auth } from './firebase'
+import { createUserWithEmailAndPassword } from 'firebase/auth'
 
 export default function Usermg() {
 
@@ -9,33 +9,38 @@ export default function Usermg() {
     const [title, setTitle] = useState("")
     const [pw, setPw] = useState("")
 
-const Add = async () => {
- 
-    const docRef = await addDoc(collection(firestore, Staff), {
-      name: name,
-      email: email,
-      title: title,
-      pw: pw    
-    }) .catch()
-  
-}
-
+    const AddUser = async () => {
+      try {
+     const user = await createUserWithEmailAndPassword(
+      auth,
+      name,
+      email,
+      title,
+      pw
+     );
+     console.log(user);
+  } catch(err) {
+      console.log(err.message);
+  }
+  }
 
   return (
-    <div className="d-flex ">
+    <div className="container d-flex flex-row">
+      <div className="row">
         <label>Name</label>
-        <input type="text" value={name} onChange={(e) => setName (e.target.value)}/>
-
-        <label>email</label>
-        <input type="text" value={email} onChange={(e) => setEmail (e.target.value)}/>
+        <input className="form-group col-7 m-2" type="text" onChange={(e) => setName (e.target.value)}/>
 
         <label>title</label>
-        <input type="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
+        <input className="form-group col-7  m-2"  type="text" onChange={(e) => setTitle(e.target.value)}/>
+
+        <label>email</label>
+        <input className="form-group col-7  m-2 "  type="text" onChange={(e) => setEmail (e.target.value)}/>
 
         <label>pw</label>
-        <input type="password" value={pw} onChange={(e) => setPw(e.target.value)}/>
+        <input className="form-group col-7 m-2"  type="password" onChange={(e) => setPw(e.target.value)}/>
 
-        <button type="button" onClick={() => Add()}>Add Pernonell</button>
+        <button className="form-group m-2 col-6 btn btn-primary"  type="button" onClick={() => AddUser()}>Add User</button>
+        </div>
     </div>
   )
 }
