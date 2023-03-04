@@ -23,7 +23,7 @@ export default function Navbar() {
           <div className="offcanvas-body">
             <div className="off_Links">
               <Link to="/">Etusivu</Link>
-              <Link to="/Kirjaus">Kirjaus</Link>
+              <Link to="/TimeManagement">Kirjaus</Link>
            </div>
           </div>
         </div>
