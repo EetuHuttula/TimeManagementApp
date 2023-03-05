@@ -17,7 +17,6 @@ export default function Login() {
         Lpw
       );
       navigate('/')
-        console.log(user)
     } catch (error) {
       console.log(error.message);
     }
