@@ -47,7 +47,7 @@ export default function Navbar() {
 
             <div className="offcanvas-body">
               <div className="off_Links">
-                <Link to="/">HomePage</Link>
+                <Link to="/">Home</Link>
                 <Link to="/TimeManagement">Time Management</Link>
                
                 <div className="profile"><hr></hr>{authUser ? <><p>Signed in as: {authUser.displayName}</p><a className="off_links" onClick={logout}>Log Out</a></>

@@ -43,17 +43,17 @@ export default function Login() {
 
     <div className="container RegisterCont">
       <div className="formcontainer">
-        <h1>Kirjautuminen</h1>
-        <p>Kirjaudu sisään antamalla sähköpostiosoitteesi.</p>
+        <h1>Log in</h1>
+        <p>Log in with your email.</p>
 
 
-        <label><b>Sähköposti</b></label>
+        <label><b>Email</b></label>
         <input type="text" placeholder="Enter Email" onChange={e => setLemail(e.target.value)} required />
 
-        <label><b>Salasana</b></label>
+        <label><b>Password</b></label>
         <input type="password" placeholder="Enter Password" onChange={e => setLpw(e.target.value)} required />
 
-        <button type="submit" className="registerbtn" onClick={login}>Kirjaudu sisään</button>
+        <button type="submit" className="registerbtn" onClick={login}>Log in</button>
       </div>
     </div>
   )
