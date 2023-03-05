@@ -49,7 +49,8 @@ export default function Navbar() {
               <div className="off_Links">
                 <Link to="/">HomePage</Link>
                 <Link to="/TimeManagement">Time Management</Link>
-                <div>{authUser ? <><p>Signed in as {authUser?.email}</p><div onClick={logout}>Log Out</div></>
+               
+                <div className="profile"><hr></hr>{authUser ? <><p>Signed in as: {authUser.displayName}</p><a className="off_links" onClick={logout}>Log Out</a></>
                   : <><Link to="/Login">Log in</Link></>}</div>
               </div>
             </div>
