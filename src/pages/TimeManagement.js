@@ -1,15 +1,13 @@
-import React,{ useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import './CSS/form.css'
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from '../firebase'
 import { Link } from 'react-router-dom'
+import { collection, addDoc, wInffo, firestore } from "../firebase";
 
 export default function Kirjaus() {
- 
-  const [authUser, setAuthUser] = useState(null);
 
+  const [authUser, setAuthUser] = useState(null);
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -21,36 +19,65 @@ export default function Kirjaus() {
 
   }, [])
 
-  
+
+  const [loading, setLoading] = useState(false);
+  const [date, setDate] = useState();
+  const [start, setStart] = useState();
+  const [end, setEnd] = useState();
+  const [name, setName] = useState();
+
+  const Add = async () => {
+    setLoading(true);
+    try {
+      await addDoc(collection(firestore, wInffo), {
+        Name: authUser.displayName,
+        Date: date,
+        Start: start,
+        End: end
+      })
+      alert("success");
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+
 
 
   return (
-    <> {authUser? <>
-      <div className="formcont container">
-        <div className="d-flex flex-column">
-          <div className="form-group col-7">
-            <label>Username</label>
-            <input type="text" className="form-control" value={authUser.displayName}  /> {/**After login the username will be in the field, you cant change it*/}
+    <>
+      {authUser ? <>
+        <div className="formcont container">
+          <div className="d-flex flex-column">
+            <div className="form-group col-7">
+              <label>Username</label>
+              <input type="text" className="form-control" value={authUser.displayName} onChange={(e) => setName(e.target.value)} readOnly /> {/**After login the username will be in the field*/}
+            </div>
+            <div className="form-group col-2">
+              <label>Date</label>
+              <input type="date" className="form-control" value={date} onChange={(e) => setDate(e.target.value)} />  {/**Date picker */}
+            </div>
+            <div className="form-group col-2">
+              <label>Starting time</label>
+              <input type="time" className="form-control" placeholder="HH:MM" value={start} onChange={(e) => setStart(e.target.value)} />  {/**workday start */}
+            </div>
+            <div className="form-group col-2">
+              <label>Ending Time</label>
+              <input type="time" className="form-control" placeholder="HH:MM" value={end} onChange={(e) => setEnd(e.target.value)} /> {/**workday end */}
+            </div>
           </div>
-          <div className="form-group col-7">
-            <label>Title</label>
-            <input type="text" className="form-control"  />
-          </div>
-          <div className="form-group col-2">
-            <label>Start</label>
-            <input type="number" className="form-control" />  {/**workday start */}
-          </div>
-          <div className="form-group col-2">
-            <label>End</label>
-            <input type="number" className="form-control"  /> {/**workday end */}
-          </div>
+          <button className="btn btn-primary" onClick={() => Add()}>Submit</button>
+          {loading && <div className="spinner-border" role="status">
+            <span className="sr-only"></span>
+          </div>}
         </div>
-        <button className="btn btn-primary">Submit</button>
-      </div>
-    </> : 
-      <div className="formcont container">
-        <button className="btn btn-primary"><Link to="/login">LogIn</Link></button>
-      </div>
-    }</>
+
+      </> :
+        <div className="formcont container">
+          <Link to="/login"><button className="btn btn-primary">Log In</button></Link>
+        </div>
+      }</>
   )
 }

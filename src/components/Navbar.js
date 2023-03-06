@@ -33,8 +33,8 @@ export default function Navbar() {
     <header>
       <nav className="navbar navbar-lg bg-body-tertiary">
         <div className="container-fluid">
-          <h3 className="navbar-brand" style={{ color: '#333' }}>EetuOy
-            <img src={logo} alt="react-logo" style={{ width: '50px' }} /></h3>
+        <Link to="/" className="off_links"><h3 className="navbar-brand" style={{ color: '#333' }}>EetuOy
+            <img src={logo} alt="react-logo" style={{ width: '50px' }} /></h3></Link>
           <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
             <span className="navbar-toggler-icon"></span>
           </button>
